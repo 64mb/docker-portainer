@@ -1,0 +1,8 @@
+/.vscode
+/.idea
+/.cache
+/.nyc_output
+/.directory
+.DS_Store
+
+.env

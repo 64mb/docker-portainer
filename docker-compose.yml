@@ -1,0 +1,24 @@
+version: '3.4'
+services:
+  portainer:
+    build:
+      context: ./
+      dockerfile: ./dockerfile
+    image: portainer:dev_2.11.1
+    container_name: portainer
+    restart: always
+    command: --data=/opt/portainer-data
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/opt/portainer-data
+    ports:
+      - 9000:9000
+    networks:
+      - web
+
+networks:
+  web:
+    driver: bridge
+
+volumes:
+  portainer_data: null
